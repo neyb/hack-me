@@ -13,10 +13,15 @@ import { useRecoilState, useRecoilValue } from "recoil";
 
 const useAssignations = () => {
   const [assignations, setAssignations] = useRecoilState(assignationAtom);
-  const employees = useRecoilValue(employeesSelector).map(toEmployee);
-  const desks = useRecoilState(desksAtom)[0].map(toDesk);
+  // Having no "actions" in recoil make us use setter in component :
+  // so we need to get all dependencies for the computation...
+  // TODO see if we can split things here
+  const employeesComputed = useRecoilValue(employeesSelector);
+  const [desksComputed] = useRecoilState(desksAtom);
 
   const calculate = () => {
+    const employees = employeesComputed.map(toEmployee);
+    const desks = desksComputed.map(toDesk);
     const assignations = prioritizePerWish.find(employees, desks);
     const state: AssignationState.Assignation[] = assignations.assignations.map(
       (assignation) => AssignationState.fromAssignation(assignation)
