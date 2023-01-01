@@ -11,7 +11,7 @@ export const TopBar = () => {
   ];
 
   return (
-    <AppBar>
+    <AppBar position="sticky">
       <Toolbar>
         {pages.map(({ label, link }) => (
           <Button
