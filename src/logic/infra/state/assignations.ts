@@ -1,7 +1,7 @@
 import { Assignation as AssignationDomain } from "@/logic/domain/assignation/assignation";
 import { atom } from "recoil";
 
-export module State {
+export module AssignationsState {
   export type Assignation = {
     deskId: string;
     employeeId: string;
@@ -9,7 +9,7 @@ export module State {
 
   export const fromAssignation = (
     assignation: AssignationDomain
-  ): State.Assignation => ({
+  ): AssignationsState.Assignation => ({
     deskId: assignation.desk.id,
     employeeId: assignation.employee.id,
   });
@@ -17,5 +17,5 @@ export module State {
 
 export const assignationAtom = atom({
   key: "assignationsAtom",
-  default: [] as State.Assignation[],
+  default: [] as AssignationsState.Assignation[],
 });

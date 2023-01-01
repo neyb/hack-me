@@ -38,14 +38,14 @@ export class Assignations {
     );
 }
 
-export type Algorythm = {
+export type AssignAlgo = {
   id: string;
-  find: (employees: Employee[], desks: Desk[]) => Assignations;
+  run: (employees: Employee[], desks: Desk[]) => Assignations;
 };
 
-export const prioritizePerWish: Algorythm = {
+export const prioritizePerWish: AssignAlgo = {
   id: "prioritizePerWish",
-  find: (employees: Employee[], desks: Desk[]) => {
+  run: (employees: Employee[], desks: Desk[]) => {
     let allPreferedAssignations = employees.map((employee) =>
       employee.preferedAssignations()
     );

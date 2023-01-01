@@ -60,7 +60,7 @@ describe("assignations", () => {
 
     test.each([prioritizePerWish])(
       "%id simple input gives one of his first preferred desk to an employee",
-      ({ id, find: run }) => {
+      ({ id, run: run }) => {
         const { employees, desks } = simpleInputs();
         const assignations = run(employees, desks);
 
@@ -82,7 +82,7 @@ describe("assignations", () => {
     describe("prioritizePerWish", () => {
       test("with simple inputs", () => {
         const { employees, desks } = simpleInputs();
-        const assignations = prioritizePerWish.find(employees, desks);
+        const assignations = prioritizePerWish.run(employees, desks);
         const { objectContaining } = expect;
 
         expect(assignations.assignations).toEqual([

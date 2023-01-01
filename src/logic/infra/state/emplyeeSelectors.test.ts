@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { computeEmployee } from "./employeeComputed";
-import { EmployeeState } from "./employeesState";
+import { EmployeeState } from "@/logic/infra/state/employeesState";
 
 describe("employees", () => {
   describe("mapping", () => {

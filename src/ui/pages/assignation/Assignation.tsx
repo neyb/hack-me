@@ -1,48 +1,15 @@
-import { prioritizePerWish } from "@/logic/domain/assignation/assignation";
-import {
-  assignationAtom,
-  State as AssignationState,
-} from "@/logic/infra/state/assignations";
-import { desksAtom, toDesk } from "@/logic/infra/state/desksState";
-import {
-  employeesSelector,
-  toEmployee,
-} from "@/logic/infra/state/employeeComputed";
+import { assignationAtom } from "@/logic/infra/state/assignations";
+import { useAssign } from "@/logic/infra/state/assignationsActions";
 import { Box, Button } from "@mui/material";
-import { useRecoilState, useRecoilValue } from "recoil";
-
-const useAssignations = () => {
-  const [assignations, setAssignations] = useRecoilState(assignationAtom);
-  // Having no "actions" in recoil make us use setter in component :
-  // so we need to get all dependencies for the computation...
-  // TODO see if we can split things here
-  const employeesComputed = useRecoilValue(employeesSelector);
-  const [desksComputed] = useRecoilState(desksAtom);
-
-  const calculate = () => {
-    const employees = employeesComputed.map(toEmployee);
-    const desks = desksComputed.map(toDesk);
-    const assignations = prioritizePerWish.find(employees, desks);
-    const state: AssignationState.Assignation[] = assignations.assignations.map(
-      (assignation) => AssignationState.fromAssignation(assignation)
-    );
-    setAssignations(state);
-  };
-
-  return { assignations, calculate };
-};
+import { useRecoilState } from "recoil";
 
 export default function Assignation() {
-  const { assignations, calculate } = useAssignations();
+  const [assignations] = useRecoilState(assignationAtom);
+  const assign = useAssign();
+
   return (
     <Box>
-      <Button
-        onClick={() => {
-          calculate();
-        }}
-      >
-        calculate
-      </Button>
+      <Button onClick={assign}>calculate</Button>
       <Box>
         <div>result</div>
         {/* temporary to see a result */}
