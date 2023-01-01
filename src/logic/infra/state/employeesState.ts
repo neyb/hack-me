@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { Desk } from "./desksState";
+import { DeskState } from "./desksState";
 
 export type EmployeeState = {
   readonly id: string;

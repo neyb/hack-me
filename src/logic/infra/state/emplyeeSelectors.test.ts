@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { computeEmployee } from "./employeeSelectors";
+import { computeEmployee } from "./employeeComputed";
 import { EmployeeState } from "./employeesState";
 
 describe("employees", () => {

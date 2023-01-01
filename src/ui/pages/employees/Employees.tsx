@@ -1,7 +1,7 @@
 import {
   EmployeeComputed,
   employeesSelector,
-} from "@/logic/infra/state/employeeSelectors";
+} from "@/logic/infra/state/employeeComputed";
 import {
   Box,
   Table,
