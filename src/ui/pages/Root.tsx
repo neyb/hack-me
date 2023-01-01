@@ -1,4 +1,4 @@
-import { TopBar } from "@/ui/common/layout/TopBar";
+import { TopBar } from "@/ui/components/layout/TopBar";
 import { Container } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
