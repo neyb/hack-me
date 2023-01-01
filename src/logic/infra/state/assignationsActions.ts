@@ -1,4 +1,3 @@
-import { prioritizePerWish } from "@/logic/domain/assignation/assignation";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { assignationAtom, AssignationsState } from "./assignations";
 import { desksAtom, DeskState, toDesk } from "./desksState";
@@ -7,6 +6,7 @@ import {
   employeesSelector,
   toEmployee,
 } from "@/logic/infra/state/employeeComputed"; //
+import { prioritizePerWish } from "@/logic/domain/algo/prioritizePerWish";
 
 export const useAssign = () => {
   const [_, setAssignations] = useRecoilState(assignationAtom);

@@ -1,4 +1,4 @@
-import { Assignation as AssignationDomain } from "@/logic/domain/assignation/assignation";
+import { Assignation as AssignationDomain } from "@/logic/domain/assignation";
 import { atom } from "recoil";
 
 export module AssignationsState {

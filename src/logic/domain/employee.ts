@@ -1,4 +1,4 @@
-import { Assignation } from "./assignation/assignation";
+import { Assignation } from "./assignation";
 import { Desk } from "./desk";
 
 export class Employee {
