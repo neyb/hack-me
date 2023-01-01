@@ -57,5 +57,9 @@ describe("algorithm", () => {
         }),
       ]);
     });
+
+    // it really need more tests... and this algorithm is pretty dumb...
+
+    // maybe sorting by number of wish could improve it a bit... but it would be a different algo...
   });
 });
