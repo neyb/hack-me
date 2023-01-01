@@ -1,3 +1,3 @@
 export default function Desks() {
-  return <div>desks</div>
+  return <div>desks</div>;
 }
